@@ -1,4 +1,6 @@
 <?php
+echo 'chargement du PDO OK !';
+
 class PdoSio{  
   	private static $serveur='mysql:';
   	private static $bdd='';   		
@@ -9,10 +11,10 @@ class PdoSio{
     
     private function __construct(){
         $config['db'] = array( 
-            'host' => 'mutusql01.evxonline.net',
-            'username' => 'mouette',
-            'password' => 'CdwHtM2TQj*',
-            'dbname' => 'tmp'
+            'host' => 'mathieulpt001.mysql.db',
+            'username' => 'mathieulpt001',
+            'password' => 'zkfddj6AnMTm',
+            'dbname' => 'mathieulpt001'
         );
         try {
             PdoSio::$myPdo = new PDO('mysql:host='. $config['db']['host'] .';dbname='. $config['db']['dbname'], $config['db']['username'], $config['db']['password']);
