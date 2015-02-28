@@ -5,10 +5,15 @@ Ce dépot contient les sources de l'application Resume Online, une application d
 ##Technos utilisées
 
 Boilerplate
+
 HTML/CSS
+
 PHP
+
 Javascript
+
 Bootstrap
+
 JQuery
 
 ##Identifiants de test
