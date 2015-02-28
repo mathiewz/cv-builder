@@ -5,6 +5,6 @@ if(isset($_GET['controller'])){
     else{header('location:/404page');}
 } else {
 	//Si on ne spécifie pas de controller, on ouvre la page de présentation du CV
-    require('view/cv.php');
+    require('controller/cv.php');
 }
 ?>

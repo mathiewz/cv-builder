@@ -1,6 +1,4 @@
 <?php
-echo 'chargement du PDO OK !';
-
 class PdoSio{  
   	private static $serveur='mysql:';
   	private static $bdd='';   		
@@ -14,7 +12,7 @@ class PdoSio{
             'host' => 'localhost',
             'username' => 'root',
             'password' => '',
-            'dbname' => 'projettut'
+            'dbname' => 'cvonline'
         );
         try {
             PdoSio::$myPdo = new PDO('mysql:host='. $config['db']['host'] .';dbname='. $config['db']['dbname'], $config['db']['username'], $config['db']['password']);

@@ -41,8 +41,11 @@
 			</div>
 			<div class="modal-body">
 				<p>Voulez vous vraiment vous déconnecter ?</p>
-				<a class="btn btn-danger" href=".">Confirmer</a>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				<form action="." method="post">
+					<input type="hidden" value="true" name="deco" />
+					<input type="submit" class="btn btn-danger" value="Confirmer" />
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				</form>
 			</div>
 		</div>
 	</div>
