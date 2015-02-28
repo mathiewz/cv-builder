@@ -11,10 +11,10 @@ class PdoSio{
     
     private function __construct(){
         $config['db'] = array( 
-            'host' => 'mathieulpt001.mysql.db',
-            'username' => 'mathieulpt001',
-            'password' => 'zkfddj6AnMTm',
-            'dbname' => 'mathieulpt001'
+            'host' => 'localhost',
+            'username' => 'root',
+            'password' => '',
+            'dbname' => 'projettut'
         );
         try {
             PdoSio::$myPdo = new PDO('mysql:host='. $config['db']['host'] .';dbname='. $config['db']['dbname'], $config['db']['username'], $config['db']['password']);
