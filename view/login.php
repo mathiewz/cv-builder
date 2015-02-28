@@ -6,6 +6,6 @@
 		<div class="form-group">
 			<input type="password" class="form-control" name="password" placeholder="mot de passe" />
 		</div>
-		<button type="submit" class="btn btn-default">Connexion</button>
+		<button type="submit" class="btn btn-primary">Connexion</button>
 	</form>
 </div>
