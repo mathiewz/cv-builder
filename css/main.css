@@ -97,7 +97,15 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-#loginForm > button{
+body{
+    background-color: #DDD;
+}
+
+#loginForm{
+    margin-top: 50px;
+}
+
+#loginForm button{
     width:100%;
 }
 
