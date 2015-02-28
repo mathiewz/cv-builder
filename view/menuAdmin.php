@@ -26,7 +26,7 @@
 			<li><a href="#">Base de données</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><button type="button" class="hidden-sm btn btn-danger navbar-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Deconnexion</a></li>
+			<li><button type="button" class="btn btn-danger navbar-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Deconnexion</a></li>
 		</ul>
 	</div>
 </div>
