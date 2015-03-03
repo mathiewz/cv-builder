@@ -7,14 +7,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Administration</a>
+			<a class="navbar-brand" href="administrator">Administration</a>
 		</div>
 		<div class="collapse navbar-collapse" id="menuTop">
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestion du CV<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Présentation</a></li>
+						<li><a href="admin-presentation">Présentation</a></li>
 						<li><a href="#">Parcours et compétences</a></li>
 						<li><a href="#">Portefolio</a></li>
 						<li><a href="#">Contact</a></li>

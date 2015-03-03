@@ -213,6 +213,7 @@ Options +FollowSymlinks
 # Options +SymLinksIfOwnerMatch
 RewriteEngine On
 RewriteRule ^administrator$ index.php?controller=admin [L]
+RewriteRule ^admin-presentation$ index.php?controller=adminprez [L]
 # RewriteBase /
 
 # ------------------------------------------------------------------------------
