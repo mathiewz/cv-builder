@@ -27,7 +27,11 @@ Ce dépot contient les sources de l'application Resume Online, une application d
 * 28 Juin : Corrections et optimisations
 
 
-##Identifiants de test
+##Demonstration
+
+L'application est disponible en démonstration à l'adresse [http://projettut.mathieu-lucas.fr/](http://projettut.mathieu-lucas.fr/)
+
+###identifiants
 
 login : admin
 
