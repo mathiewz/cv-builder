@@ -26,18 +26,10 @@
         foreach ($views as $viewName){
         	include('view/'.$viewName.'.php'); 
         }
+        if(sizeof($viewsContainer)>0){
+            include('view/containerView.php');
+        }
         ?>
-        <div class="container">
-        	<div class="panel panel-default">
-				<div class="panel-body">
-		        	<?php 
-		        	foreach ($viewsContainer as $viewName){
-		        		include('view/'.$viewName.'.php'); 
-		        	}
-		        	?>
-        		</div>
-        	</div>     	
-        </div>
 
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
