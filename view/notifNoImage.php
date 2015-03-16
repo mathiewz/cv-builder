@@ -1,0 +1,1 @@
+<div class="alert alert-danger" role="alert">Aucune image séléctionnée</div>
