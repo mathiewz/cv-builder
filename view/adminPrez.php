@@ -10,7 +10,7 @@
 			<input type="hidden" name="formSend" value="UploadPhoto">
 			<div class="form-group">
 				<label for="photo">Sélectionnez un portrait de vous</label>
-				<input type="file" id="photo" name="photo">
+				<input type="file" id="photo" name="photo" accept="image/*">
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
