@@ -7,35 +7,29 @@
 	</div>
 	<div class="panel-body">
 		<form action="admin-presentation" method="post">
-			<input type="hidden" name="formSend" value="Description">
-			<div class="form-group">
-				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon">Votre nom</div>
-					<label for="nom" class="visible-xs">Votre nom</label>
-					<input type="text" class="form-control" name="nom" id="nom">
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon">Votre pr&eacute;nom</div>
-					<label for="prenom" class="visible-xs">Votre pr&eacute;nom</label>
-					<input type="text" class="form-control" name="prenom" id="prenom">
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon">Votre date de naissance</div>
-					<label for="age" class="visible-xs">Votre date de naissance</label>
-					<input type="text" class="form-control" name="age" id="age">
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon">Quelques mots sur vous</div>
-					<label for="description" class="visible-xs">Quelques mots sur vous</label>		
-					<textarea class="form-control" rows="4" name="description" id="description"></textarea>
-				</div>
-			</div>
+			<input type="hidden" name="formSend" value="Description"/>
+			<?php
+				$formNames = array();
+				$forms['nom'] = 'Votre nom';
+				$forms['prenom'] = 'Votre prenom';
+				$forms['date'] = 'Votre date de naissance';
+				$forms['description'] = 'Quelques mots sur vous';
+				foreach ($forms as $key => $value) {
+					echo'
+					<div class="form-group">
+						<div class="input-group group-prez">
+							<div class="hidden-xs input-group-addon">'.$value.'</div>
+							<label for="'.$key.'" class="visible-xs">'.$value.'</label>';
+					if($key == 'description'){	//Si c'est le champ de la description, on met un textArea
+						echo '<textarea class="form-control" rows="4" name="'.$key.'" id="'.$key.'"></textarea>';
+					} else {
+						echo '<input type="text" class="form-control" name="'.$key.'" id="'.$key.'"/>';
+					}
+					echo '</div>
+					</div>
+					';
+				}
+			?>
 			<button type="submit" class="btn btn-primary">Enregistrer la description</button>
 		</form>
 	</div>
@@ -46,9 +40,9 @@
 	</div>
 	<div class="panel-body">
 		<form action="admin-presentation" method="post" class="form-inline" enctype="multipart/form-data">
-			<input type="hidden" name="formSend" value="UploadPhoto">
+			<input type="hidden" name="formSend" value="UploadPhoto"/>
 			<div class="form-group">
-				<input type="file" id="photo" name="photo" accept="image/*">
+				<input type="file" id="photo" name="photo" accept="image/*" />
 			</div>
 			<button type="submit" class="btn btn-primary">Enregistrer la photo</button>
 		</form>
