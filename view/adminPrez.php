@@ -54,3 +54,11 @@
 		</form>
 	</div>
 </div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h2 class="panel-title">Mes portraits</h2>
+	</div>
+	<div class="panel-body">
+		liste des portraits ici
+	</div>
+</div>
