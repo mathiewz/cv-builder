@@ -9,26 +9,21 @@
 		<form action="admin-presentation" method="post">
 			<input type="hidden" name="formSend" value="Description"/>
 			<?php
-				$formNames = array();
-				$forms['nom'] = 'Votre nom';
-				$forms['prenom'] = 'Votre prenom';
-				$forms['date'] = 'Votre date de naissance';
-				$forms['description'] = 'Quelques mots sur vous';
-				foreach ($forms as $key => $value) {
-					echo'
-					<div class="form-group">
-						<div class="input-group group-prez">
-							<div class="hidden-xs input-group-addon">'.$value.'</div>
-							<label for="'.$key.'" class="visible-xs">'.$value.'</label>';
-					if($key == 'description'){	//Si c'est le champ de la description, on met un textArea
-						echo '<textarea class="form-control" rows="4" name="'.$key.'" id="'.$key.'"></textarea>';
-					} else {
-						echo '<input type="text" class="form-control" name="'.$key.'" id="'.$key.'"/>';
-					}
-					echo '</div>
-					</div>
-					';
+			foreach ($forms as $key => $value) {
+				echo'
+				<div class="form-group">
+					<div class="input-group group-prez">
+						<div class="hidden-xs input-group-addon">'.$value.'</div>
+						<label for="'.$key.'" class="visible-xs">'.$value.'</label>';
+				if($key == 'description'){	//Si c'est le champ de la description, on met un textArea
+					echo '<textarea class="form-control" rows="4" name="'.$key.'" id="'.$key.'"></textarea>';
+				} else {
+					echo '<input type="text" class="form-control" name="'.$key.'" id="'.$key.'"/>';
 				}
+				echo '</div>
+				</div>
+				';
+			}
 			?>
 			<button type="submit" class="btn btn-primary">Enregistrer la description</button>
 		</form>

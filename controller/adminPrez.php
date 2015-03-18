@@ -12,6 +12,13 @@
 			}
 		}
 		$viewsContainer[] = 'adminPrez';
+
+		//On définitx les différents champs du formulaire de description
+		$formNames = array();
+		$forms['nom'] = 'Votre nom';
+		$forms['prenom'] = 'Votre prenom';
+		$forms['date'] = 'Votre date de naissance';
+		$forms['description'] = 'Quelques mots sur vous';
 	} else {
 		$views[] = 'login';
 	}
