@@ -10,28 +10,28 @@
 			<input type="hidden" name="formSend" value="Description">
 			<div class="form-group">
 				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon addon-prez">Votre nom</div>
+					<div class="hidden-xs input-group-addon">Votre nom</div>
 					<label for="nom" class="visible-xs">Votre nom</label>
 					<input type="text" class="form-control" name="nom" id="nom">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon addon-prez">Votre pr&eacute;nom</div>
+					<div class="hidden-xs input-group-addon">Votre pr&eacute;nom</div>
 					<label for="prenom" class="visible-xs">Votre pr&eacute;nom</label>
 					<input type="text" class="form-control" name="prenom" id="prenom">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon addon-prez">Votre date de naissance</div>
+					<div class="hidden-xs input-group-addon">Votre date de naissance</div>
 					<label for="age" class="visible-xs">Votre date de naissance</label>
 					<input type="text" class="form-control" name="age" id="age">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group group-prez">
-					<div class="hidden-xs input-group-addon addon-prez">Quelques mots sur vous</div>
+					<div class="hidden-xs input-group-addon">Quelques mots sur vous</div>
 					<label for="description" class="visible-xs">Quelques mots sur vous</label>		
 					<textarea class="form-control" rows="4" name="description" id="description"></textarea>
 				</div>

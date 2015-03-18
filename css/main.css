@@ -105,17 +105,17 @@ body{
     margin-top: 50px;
 }
 
-#loginForm button{
-    width:100%;
-}
-
-.addon-prez{
-    width : 200px;
-}
+    #loginForm button{
+        width:100%;
+    }
 
 .group-prez{
     width : 100%;
 }
+
+    .group-prez .input-group-addon{
+        width : 200px;
+    }
 
 /* ==========================================================================
    Helper classes
