@@ -31,6 +31,8 @@ Ce dépot contient les sources de l'application Resume Online, une application d
 
 L'application est disponible en démonstration à l'adresse [http://projettut.mathieu-lucas.fr/](http://projettut.mathieu-lucas.fr/)
 
+L'accès a l'administration se fait à l'adresse [http://projettut.mathieu-lucas.fr/administrator](http://projettut.mathieu-lucas.fr/administrator)
+
 ###identifiants
 
 login : admin
