@@ -2,22 +2,20 @@
 	session_start ();
 	$views = array();
 	$viewsContainer = array();
-	var_dump($_FILES);
-
-	if(isset($_FILES['photo'])){
-		$uploaddir = 'img/uploads/';
-		$extension = '.'.substr($_FILES['photo']['type'], 6);
-		$uploadfile = $uploaddir.'profilPic-'.date('Y-m-d-H-i-s').$extension;
-		move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
-	}
 
 	if (isset($_SESSION['connected']) && $_SESSION['connected']==true) {
+		require('model/presentation.php');		
 		$views[] = 'menuAdmin';
 		if(isset($_POST['formSend'])){
-			if($_POST['formSend']=='UploadPhoto' && $_FILES['photo']['size'] == 0){
-				$viewsContainer[] = 'notifNoImage';
+			if($_POST['formSend']=='UploadPhoto'){
+				$uploaddir = 'img/uploads/';
+				$extension = '.'.substr($_FILES['photo']['type'], 6);
+				$uploadfile = $uploaddir.'profilPic-'.date('Y-m-d-H-i-s').$extension;
+				move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
 			} else if($_POST['formSend']=='Description'){
 				var_dump($_POST);
+				$birthday = substr($_POST['birthday'], 6,4).'-'.substr($_POST['birthday'], 3,2).'-'.substr($_POST['birthday'], 0,2);
+				updateDesc($_POST['nom'],$_POST['prenom'],$birthday,$_POST['description']);
 			}
 		}
 		$viewsContainer[] = 'adminPrez';
@@ -26,7 +24,7 @@
 		$formNames = array();
 		$forms['nom'] = 'Votre nom';
 		$forms['prenom'] = 'Votre prenom';
-		$forms['date'] = 'Votre date de naissance';
+		$forms['birthday'] = 'Votre date de naissance';
 		$forms['description'] = 'Quelques mots sur vous';
 
 		//on charge le nom des différentes photos pour l'apercu

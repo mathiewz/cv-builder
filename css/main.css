@@ -109,16 +109,34 @@ body{
         width:100%;
     }
 
-.group-prez{
-    width : 100%;
+.group-prez .input-group-addon{
+    width : 200px;
 }
-
-    .group-prez .input-group-addon{
-        width : 200px;
-    }
 
 #imgTable img{
     width: 100%;
+}
+
+.datepicker{
+    width:230px;
+}
+
+.datepicker td{
+    font-size: 11pt;
+}
+
+.jumbotron{
+    margin-top: 10%;
+}
+
+.portraitCV{
+    height: 200px;
+    width: 200px;
+}
+
+#photoCV{
+    height: 200px;
+    padding: 0;
 }
 
 /* ==========================================================================
