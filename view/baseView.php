@@ -15,25 +15,36 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
-	<script src="js/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="css/fileinput.min.css">
+    
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/fileinput.min.js"></script>
+    <script src="js/fileinput_locale_fr.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <?php 
-        foreach ($views as $viewName){
-        	include('view/'.$viewName.'.php'); 
-        }
-        if(sizeof($viewsContainer)>0){
-            include('view/containerView.php');
-        }
-        ?>
-
-        <script src="js/jquery-1.11.2.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-    </body>
-    </html>
+    <?php 
+    foreach ($views as $viewName){
+    	include('view/'.$viewName.'.php'); 
+    }
+    if(isset($viewsContainer) && sizeof($viewsContainer)>0){
+        echo '<div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">';
+                    foreach ($viewsContainer as $viewName){
+                        include('view/'.$viewName.'.php'); 
+                    }
+                echo '</div>
+            </div>      
+        </div>';
+    }
+    ?>
+</body>
+</html>

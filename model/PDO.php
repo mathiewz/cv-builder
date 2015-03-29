@@ -11,7 +11,7 @@ class PdoSio{
         $config['db'] = array( 
             'host' => 'localhost',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             'dbname' => 'cvonline'
         );
         try {

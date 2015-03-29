@@ -2,6 +2,7 @@
 	session_start ();
 	$views = array();
 	$viewsContainer = array();
+	var_dump($_FILES);
 	if (isset($_SESSION['connected']) && $_SESSION['connected']==true) {
 		$views[] = 'menuAdmin';
 		if(isset($_POST['formSend'])){

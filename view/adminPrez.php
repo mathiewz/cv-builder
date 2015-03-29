@@ -37,9 +37,8 @@
 		<form action="admin-presentation" method="post" class="form-inline" enctype="multipart/form-data">
 			<input type="hidden" name="formSend" value="UploadPhoto"/>
 			<div class="form-group">
-				<input type="file" id="photo" name="photo" accept="image/*" />
+				<input type="file" id="photo" name="photo" class="file" accept="image/*" />
 			</div>
-			<button type="submit" class="btn btn-primary">Enregistrer la photo</button>
 		</form>
 	</div>
 </div>
@@ -51,3 +50,10 @@
 		liste des portraits ici
 	</div>
 </div>
+
+<script type="text/javascript">
+$("#photo").fileinput({
+	browseClass: "btn btn-primary btn-block",
+	showCaption: false,
+});
+</script>
