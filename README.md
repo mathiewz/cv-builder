@@ -18,8 +18,8 @@ Ce dépot contient les sources de l'application Resume Online, une application d
 
 ###Planning des livraisons
 
-* 8 mars : architecture de base + système d’authentification
-* 29 mars : Partie présentation et compétences
+* 8 mars : architecture de base + système d’authentification (livrée)
+* 29 mars : Partie présentation et compétences (partie présentation livrée)
 * 19 Avril : Partie portfolio
 * 10 Mai : Partie contact
 * 31 Mai : Reste de la partie back office : Themes, gestion des utilisateurs et de la base de données
@@ -27,7 +27,11 @@ Ce dépot contient les sources de l'application Resume Online, une application d
 * 28 Juin : Corrections et optimisations
 
 
-##Identifiants de test
+##Demonstration
+
+L'application est disponible en démonstration à l'adresse [http://projettut.mathieu-lucas.fr/](http://projettut.mathieu-lucas.fr/)
+
+###identifiants
 
 login : admin
 
