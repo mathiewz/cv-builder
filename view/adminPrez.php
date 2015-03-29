@@ -50,7 +50,18 @@
 			<h2 class="panel-title">Mes portraits</h2>
 		</div>
 		<div class="panel-body">
-			liste des portraits ici
+			<?php 
+			if(sizeof($profilPics)>0){
+				foreach ($profilPics as $picSrc){
+					echo'<div class="file-preview-frame col-xs-4" id="imgTable">
+						<img src="img/uploads/'.$picSrc.'" />
+					</div>';
+				}
+			} else {
+				echo 'pas encore de portrait mis en ligne';
+			}
+
+			?>
 		</div>
 	</div>
 </div>

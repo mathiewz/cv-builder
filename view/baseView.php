@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fileinput.min.css">
+    <link rel="stylesheet" href="css/fileinput.css">
     
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/fileinput.min.js"></script>
