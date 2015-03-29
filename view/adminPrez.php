@@ -29,25 +29,29 @@
 		</form>
 	</div>
 </div>
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h2 class="panel-title">Ajoutez un portrait</h2>
-	</div>
-	<div class="panel-body">
-		<form action="admin-presentation" method="post" class="form-inline" enctype="multipart/form-data">
-			<input type="hidden" name="formSend" value="UploadPhoto"/>
-			<div class="form-group">
-				<input type="file" id="photo" name="photo" class="file" accept="image/*" />
-			</div>
-		</form>
+<div class="col-xs-12 col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Ajoutez un portrait</h2>
+		</div>
+		<div class="panel-body">
+			<form action="admin-presentation" method="post" class="form-inline" enctype="multipart/form-data">
+				<input type="hidden" name="formSend" value="UploadPhoto"/>
+				<div class="form-group group-prez">
+					<input type="file" id="photo" name="photo" class="file" accept="image/*" />
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h2 class="panel-title">Mes portraits</h2>
-	</div>
-	<div class="panel-body">
-		liste des portraits ici
+<div class="col-xs-12 col-md-8">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Mes portraits</h2>
+		</div>
+		<div class="panel-body">
+			liste des portraits ici
+		</div>
 	</div>
 </div>
 
