@@ -4,7 +4,6 @@
     $viewsContainer = array();
 
     if (isset($_SESSION['connected']) && $_SESSION['connected']==true) {
-        require('model/presentation.php');		
         $views[] = 'menuAdmin';
         $viewsContainer[] = 'adminComp';
     } else {

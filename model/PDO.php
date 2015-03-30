@@ -1,9 +1,9 @@
 <?php
 class PdoSio{  
-  	private static $serveur='mysql:';
-  	private static $bdd='';   		
-  	private static $user='';    		
-  	private static $mdp='';	
+    private static $serveur='mysql:';
+    private static $bdd='';           
+    private static $user='';            
+    private static $mdp='';    
     private static $myPdo=null;
     private static $myPdoSio=null;
     
@@ -16,11 +16,11 @@ class PdoSio{
         );
         try {
             PdoSio::$myPdo = new PDO('mysql:host='. $config['db']['host'] .';dbname='. $config['db']['dbname'], $config['db']['username'], $config['db']['password']);
-    		PdoSio::$myPdo->query("SET CHARACTER SET utf8");
+            PdoSio::$myPdo->query("SET CHARACTER SET utf8");
         } catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
         }
-	}
+    }
         
     public function _destruct(){
         PdoSio::$myPdo = null;
@@ -75,7 +75,7 @@ class PdoSio{
         
         $res= PdoSio::$myPdo->query($request);
         if($res==null){
-         return null;   
+            return null;   
         }else{  
             return $res->fetchall(PDO::FETCH_NAMED);
         } 
