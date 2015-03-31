@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fileinput.css">
     <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/farbtastic.css">
     <link rel="stylesheet" href="css/main.css">
 
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -24,6 +25,7 @@
     <script src="js/fileinput_locale_fr.js"></script>
     <script src="js/modernizr-2.6.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/farbtastic.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </head>

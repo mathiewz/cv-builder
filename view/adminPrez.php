@@ -53,7 +53,7 @@
             <?php 
             if(sizeof($profilPics)>0){
                 foreach ($profilPics as $picSrc){
-                    echo'<div class="file-preview-frame col-xs-12 col-sm-6 col-md-4 col-lg-3" id="imgTable">
+                    echo'<div class="file-preview-frame col-xs-12 col-sm-4 col-lg-3" id="imgTable">
                         <img src="img/uploads/'.$picSrc.'" />
                     </div>';
                 }

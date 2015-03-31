@@ -16,11 +16,14 @@
                         <input type="text" class="form-control" name="nom" id="nom" required />
                     </div>
                 </div>
-                <div class="form-group group-prez col-xs-12 col-md-6">
-                    <div class="input-group col-xs-12">
-                        <div class="hidden-xs input-group-addon">Couleur associée</div>
-                        <label for="color" class="visible-xs">Couleur associée</label>
-                        <input type="text" class="form-control" name="color" id="color" required />
+                <div class="col-xs-12 col-md-6">
+                    <input type="hidden" class="form-control" name="color" id="color" value="#428bca" required />
+                    <a class="btn btn-primary col-xs-12 col-sm-4" data-toggle="modal" data-target=".color-modal-sm">Couleur</a>
+                    <div class="col-xs-12 col-sm-8">
+                        <div id="colorDemoProgress" class="progress">
+                            <div class="progress-bar progress-bar-striped active fb-callback" style="width: 100%">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -43,3 +46,27 @@
     </li>
 </ul>
 
+<!-- La fenetre modale de selection de couleur -->
+<div class="modal fade color-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Séléctionner une couleur</h4>
+            </div>
+            <div class="modal-body">
+                <div id="colorpicker"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">Selectionner</button>
+                <button class="btn col-xs-5 fb-callback">&nbsp;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#colorpicker').farbtastic('#color');
+  });
+</script>

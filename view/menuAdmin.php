@@ -25,7 +25,7 @@
                 <li><a href="#">Base de donn&eacute;es</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><button type="button" class="btn btn-danger navbar-btn" data-toggle="modal" data-target=".bs-example-modal-sm">D&eacute;connexion</a></li>
+                <li><button type="button" class="btn btn-danger navbar-btn" data-toggle="modal" data-target=".bs-example-modal-sm">D&eacute;connexion</button></li>
             </ul>
         </div>
     </div>
