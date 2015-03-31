@@ -9,14 +9,14 @@
         <div class="panel-body">
             <form action="admin-competences" method="post">
                 <input type="hidden" name="formSend" value="addCategorie"/>
-                <div class="form-group col-xs-12">
-                    <div class="input-group group-prez col-xs-12">
+                <div class="form-group group-prez col-xs-12 col-md-6">
+                    <div class="input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Nom</div>
                         <label for="nom" class="visible-xs">Nom</label>
                         <input type="text" class="form-control" name="nom" id="nom" required />
                     </div>
                 </div>
-                <div class="form-group group-prez col-xs-12">
+                <div class="form-group group-prez col-xs-12 col-md-6">
                     <div class="input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Couleur associée</div>
                         <label for="color" class="visible-xs">Couleur associée</label>
