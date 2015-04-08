@@ -32,6 +32,14 @@ class PdoSio{
         }
         return PdoSio::$myPdoSio;
     }
+    
+    /*
+    * to use to get the instance of the object PDO
+    */
+    public function quote($value){
+        return PdoSio::$myPdo->quote($value);
+    }
+    
     /* TO USE ACTION REQUEST
     * Example:  
     * $pdo = PdoSio::getPdoSio();
