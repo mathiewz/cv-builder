@@ -38,12 +38,19 @@
     foreach ($views as $viewName){
         include('view/'.$viewName.'.php'); 
     }
-    if(isset($viewsContainer) && sizeof($viewsContainer)>0){
+    if((isset($viewsContainer) && sizeof($viewsContainer)>0) || (isset($notifs) && sizeof($notifs)>0)){
         echo '<div class="container">
             <div class="panel panel-default">
                 <div class="panel-body">';
-                    foreach ($viewsContainer as $viewName){
-                        include('view/'.$viewName.'.php'); 
+                    if(isset($notifs) && sizeof($notifs)>0){
+                        foreach ($notifs as $notif){
+                            echo '<div class="alert '.$notif->getType().'" role="alert">'.$notif->getMessage().'</div>';
+                        }
+                    }
+                    if(isset($viewsContainer) && sizeof($viewsContainer)>0){
+                        foreach ($viewsContainer as $viewName){
+                            include('view/'.$viewName.'.php'); 
+                        }
                     }
                 echo '</div>
             </div>      
