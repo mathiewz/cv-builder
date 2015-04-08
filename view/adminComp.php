@@ -9,22 +9,28 @@
         <div class="panel-body">
             <form action="admin-competences" method="post">
                 <input type="hidden" name="formSend" value="addCategorie"/>
-                <div class="form-group group-prez col-xs-12 col-md-6">
-                    <div class="input-group col-xs-12">
-                        <div class="hidden-xs input-group-addon">Nom</div>
-                        <label for="nom" class="visible-xs">Nom</label>
-                        <input type="text" class="form-control" name="nom" id="nom" required />
+                <div class="form-group col-xs-12">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group input-group group-prez col-xs-12">
+                            <div class="hidden-xs input-group-addon">Nom</div>
+                            <label for="nom" class="visible-xs">Nom</label>
+                            <input type="text" class="form-control" name="nom" id="nom" required />
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <input type="hidden" class="form-control" name="color" id="color" value="#428bca" required />
-                    <a class="btn btn-primary col-xs-12 col-sm-4" data-toggle="modal" data-target=".color-modal-sm">Couleur</a>
-                    <div class="col-xs-12 col-sm-8">
-                        <div id="colorDemoProgress" class="progress">
-                            <div class="progress-bar progress-bar-striped active fb-callback" style="width: 100%">
+                    <div class="col-xs-12 col-md-6">
+                        <input type="hidden" class="form-control" name="color" id="color" value="#428bca" required />
+                        <a class="btn btn-primary col-xs-12 col-sm-4" data-toggle="modal" data-target=".color-modal-sm">Couleur</a>
+                        <div class="col-xs-12 col-sm-8">
+                            <div id="colorDemoProgress" class="progress">
+                                <div class="progress-bar progress-bar-striped active fb-callback" style="width: 100%">
+                                    <!--La progressBar est générée ici par Bootstrap ! -->
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="addCatButton" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <input type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
                 </div>
             </form>
         </div>
