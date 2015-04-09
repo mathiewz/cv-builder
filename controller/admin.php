@@ -2,8 +2,7 @@
 	require('model/admin.php');
 	session_start ();
     $views = array();
-	$viewsContainer = array();
-    $notifs = array();
+    $errorLogin = false;
 	if(isset($_POST['login']) && isset($_POST['password'])){
 		$_SESSION['connected'] = connexion($_POST['login'], $_POST['password']);
 	}
@@ -12,11 +11,9 @@
 	} else {
         require_once('classes/Notification.class.php');
         if(isset($_POST['login'])){
-            $notifs[] = new Notification(Notification::$ERR_MESSAGE, "Echec de l'authentification");
-		    $viewsContainer[] = 'login';
-        } else {
-            $views[] = 'login';
+            $errorLogin = true;
         }
+        $views[] = 'login';
 	}
 	require('view/baseView.php');
 ?>

@@ -4,15 +4,22 @@
     $viewsContainer = array();
 
     if (isset($_SESSION['connected']) && $_SESSION['connected']==true) {
+        require_once('model/competences.php');
         if(isset($_POST['formSend'])){
             if($_POST['formSend'] == 'addCategorie'){
-                require_once('model/competences.php');
                 addCategorie($_POST['nom'], $_POST['color']);
             }
         }
 
         $views[] = 'menuAdmin';
         $viewsContainer[] = 'adminComp';
+        
+        $tableCat = getAllCategories();
+        $categories = array();
+        foreach($tableCat as $catFromTable){
+            $categories[$catFromTable['id']]=$catFromTable['name'];
+        }
+        print_r($categories);
     } else {
         $views[] = 'login';
     }

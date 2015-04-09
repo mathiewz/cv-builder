@@ -8,4 +8,11 @@ function addCategorie($name, $color){
     return $res;
 }
 
+function  getAllCategories(){
+    $pdo = PdoSio::getPdoSio();
+    $req = 'SELECT * FROM comp_categ;';
+    $ret = $pdo->selectRequest($req);
+    return $ret;
+}
+
 ?>

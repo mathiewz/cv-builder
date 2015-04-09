@@ -4,6 +4,7 @@
             <h3 class="panel-title">Connexion</h3>
         </div>
         <div class="panel-body">
+            <?php if($errorLogin){echo '<div class="alert alert-danger" role="alert">Echec de l\'authentification</div>';}?>
             <form role="form" action="administrator" method="post">
                 <div class="form-group">
                     <input type="text" class="form-control" name="login" placeholder="login"/>

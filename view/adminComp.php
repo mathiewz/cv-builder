@@ -2,6 +2,7 @@
     <h1>Page des compétences</h1>
 </div>
 <div class="col-xs-12">
+    <!-- Panel d'ajout d'une categorie -->
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2 class="panel-title">Ajoutez une catégorie</h2>
@@ -29,6 +30,34 @@
                         </div>
                     </div>
                 </div>
+                <div id="addCatButton" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <input type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Panel d'ajout d'une competence -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Ajoutez une competence</h2>
+        </div>
+        <div class="panel-body">
+            <form action="admin-competences" method="post">
+                <input type="hidden" name="formSend" value="addCompetence"/>
+                <!-- Ce select contient toutes les catégories rentrées plus tot -->
+                <div class="hidden-xs input-group-addon">Nom</div>
+                <label for="nom" class="visible-xs">Nom</label>
+                <input type="text" class="form-control" name="nom" id="nom" required />
+                
+                <select name="categorie" class="form-control">
+                    <?php
+                    foreach($categories as $id => $name){
+                        echo '<option value="'.$id.'">'.$name.'</option> ';
+                    }
+
+                    ?>
+                </select>
                 <div id="addCatButton" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <input type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
                 </div>
