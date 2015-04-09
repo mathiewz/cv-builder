@@ -5,6 +5,7 @@
         $pdo = PdoSio::getPdoSio();
         $request = "REPLACE into description (id, nom, prenom, birthday, description) values(1, '".$nom."', '".$prenom."', '".$birthday."', '".$description."');";
         $res = $pdo->actionRequest($request);
+        return $res;
     }
 
     function getElement($column){
