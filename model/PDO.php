@@ -1,9 +1,6 @@
 <?php
 class PdoSio{  
-    private static $serveur='mysql:';
-    private static $bdd='';           
-    private static $user='';            
-    private static $mdp='';    
+    private static $serveur='mysql:';  
     private static $myPdo=null;
     private static $myPdoSio=null;
     
@@ -11,7 +8,7 @@ class PdoSio{
         $config['db'] = array( 
             'host' => 'localhost',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             'dbname' => 'cvonline'
         );
         try {
