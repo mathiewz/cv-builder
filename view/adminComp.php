@@ -70,14 +70,6 @@
                 
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group input-group col-xs-12">
-                        <div class="hidden-xs input-group-addon">Nom</div>
-                        <label for="nom" class="visible-xs">Nom</label>
-                        <input type="text" class="form-control" name="nom" id="nom" required />
-                    </div>
-                </div>
-                
-                <div class="col-xs-12 col-sm-6">
-                    <div class="form-group input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Niveau (en %)</div>
                         <label for="niveau" class="visible-xs">Niveau (en %)</label>
                         <input id="niveau" type="text" value="55" name="niveau">
