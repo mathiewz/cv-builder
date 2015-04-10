@@ -2,10 +2,43 @@
     <h1>Page des compétences</h1>
 </div>
 <div class="col-xs-12">
+    
+    <!-- Panel de visualisation des cotégories -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Catégories de compétences</h2>
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th class="col-xs-3">Nom</th>
+                <th class="col-xs-6">Couleur</th>
+                <th class="col-xs-3">Actions</th>
+            </tr>
+            <?php
+            foreach($categories as $cat){
+                echo '
+                <tr>
+                    <td>'.$cat['name'].'</td>
+                    <td><div class="progress no-margin"><div class="progress-bar progress-bar-striped active" style="width: 100%; background-color: '.$cat['color'].';"></div></div></td>
+                    <td><a href="#">
+                            <span class="hidden-xs hidden-sm">editer </span>
+                            <span class="glyphicon glyphicon-pencil"/>
+                        </a> 
+                        <a href="#">
+                            <span class="hidden-xs hidden-sm">supprimer </span>
+                            <span class="glyphicon glyphicon-remove"/>
+                    </a></td>
+                </tr>
+                ';
+            }
+            ?>
+        </table>
+    </div>
+    
     <!-- Panel d'ajout d'une categorie -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2 class="panel-title">Ajoutez une catégorie</h2>
+            <h2 class="panel-title">Ajouter une catégorie</h2>
         </div>
         <div class="panel-body">
             <form action="admin-competences" method="post">
@@ -37,10 +70,44 @@
         </div>
     </div>
     
+        <!-- Panel de visualisation des cotégories -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Liste des compétences</h2>
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th class="col-xs-3">Nom</th>
+                <th class="col-xs-4">Categorie</th>
+                <th class="col-xs-2">Niveau</th>
+                <th class="col-xs-3">Actions</th>
+            </tr>
+            <?php
+            foreach($competences as $comp){
+                echo '
+                <tr>
+                    <td>'.$comp['name'].'</td>
+                    <td></td>
+                    <td>'.$comp['niveau'].'%</td>
+                    <td><a href="#">
+                            <span class="hidden-xs hidden-sm">editer </span>
+                            <span class="glyphicon glyphicon-pencil"/>
+                        </a> 
+                        <a href="#">
+                            <span class="hidden-xs hidden-sm">supprimer </span>
+                            <span class="glyphicon glyphicon-remove"/>
+                    </a></td>
+                </tr>
+                ';
+            }
+            ?>
+        </table>
+    </div>
+    
     <!-- Panel d'ajout d'une competence -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2 class="panel-title">Ajoutez une competence</h2>
+            <h2 class="panel-title">Ajouter une competence</h2>
         </div>
         <div class="panel-body">
             <form action="admin-competences" method="post">
@@ -60,7 +127,7 @@
                         <label for="categorie" class="visible-xs">Catégorie</label>
                         <select name="categorie" class="form-control">
                             <?php
-                            foreach($categories as $id => $name){
+                            foreach($categoriesSelect as $id => $name){
                                 echo '<option value="'.$id.'">'.$name.'</option> ';
                             }
                             ?>
@@ -124,7 +191,6 @@
         min: 0,
         max: 100,
         boostat: 5,
-        maxboostedstep: 10,
-        buttondown_class: 'btn btn-default minus-button'
+        maxboostedstep: 10
     });
 </script>

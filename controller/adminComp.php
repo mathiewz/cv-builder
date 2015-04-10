@@ -10,18 +10,15 @@
                 addCategorie($_POST['nom'], $_POST['color']);
             } else if ($_POST['formSend'] == 'addCompetence') {
                 addCompetence($_POST['nom'], $_POST['categorie'], $_POST['niveau']);
-                print_r($_POST);
             }
         }
 
         $views[] = 'menuAdmin';
         $viewsContainer[] = 'adminComp';
         
-        $tableCat = getAllCategories();
-        $categories = array();
-        foreach($tableCat as $catFromTable){
-            $categories[$catFromTable['id']]=$catFromTable['name'];
-        }
+        $categoriesSelect = getAllCategoriesName();
+        $categories = getAllCategories();
+        $competences = getAllCompetences();
     } else {
         $views[] = 'login';
     }

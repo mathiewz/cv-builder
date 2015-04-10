@@ -15,11 +15,36 @@ function  getAllCategories(){
     return $ret;
 }
 
+function getAllCategoriesName(){
+    $array = getAllCategories();
+    $ret = array();
+    foreach($array as $catFromTable){
+        $ret[$catFromTable['id']]=$catFromTable['name'];
+    }
+    return $ret;
+}
+
 function addCompetence($name, $idCategorie, $niveau){
     $pdo = PdoSio::getPdoSio();
     $request = 'INSERT into competence (name, idCateg, niveau) values ('.$pdo->quote($name).','.$idCategorie.','.$niveau.');';
     $res = $pdo->actionRequest($request);
     return $res;
+}
+
+function  getAllCompetences(){
+    $pdo = PdoSio::getPdoSio();
+    $req = 'SELECT * FROM competence;';
+    $ret = $pdo->selectRequest($req);
+    return $ret;
+}
+
+function  getAllCompetencesName(){
+    $array = getAllCompetences();
+    $ret = array();
+    foreach($array as $compFromTable){
+        $ret[$compFromTable['id']]=$compFromTable['name'];
+    }
+    return $ret;
 }
 
 ?>
