@@ -8,6 +8,9 @@
         if(isset($_POST['formSend'])){
             if($_POST['formSend'] == 'addCategorie'){
                 addCategorie($_POST['nom'], $_POST['color']);
+            } else if ($_POST['formSend'] == 'addCompetence') {
+                addCompetence($_POST['nom'], $_POST['categorie'], $_POST['niveau']);
+                print_r($_POST);
             }
         }
 
@@ -19,7 +22,6 @@
         foreach($tableCat as $catFromTable){
             $categories[$catFromTable['id']]=$catFromTable['name'];
         }
-        print_r($categories);
     } else {
         $views[] = 'login';
     }

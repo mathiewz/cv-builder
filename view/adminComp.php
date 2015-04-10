@@ -8,8 +8,8 @@
             <h2 class="panel-title">Ajoutez une catégorie</h2>
         </div>
         <div class="panel-body">
-            <input type="hidden" name="formSend" value="addCategorie"/>
             <form action="admin-competences" method="post">
+                <input type="hidden" name="formSend" value="addCategorie"/>
                 <div class="form-group col-xs-12">
                     <div class="col-xs-12 col-md-6">
                         <div class="form-group input-group col-xs-12">
@@ -72,10 +72,12 @@
                     <div class="form-group input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Niveau (en %)</div>
                         <label for="niveau" class="visible-xs">Niveau (en %)</label>
-                        <input id="niveau" type="text" value="55" name="niveau">
+                        <div>
+                            <input id="niveau" type="text" value="" name="niveau">
+                        </div>
                     </div>
                 </div>
-                <div id="addCatButton" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <input type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
                 </div>
             </form>
@@ -95,6 +97,7 @@
             <li>Compétences</li>
         </ul>
     </li>
+    <li>Afficher, modifier et supprimer une compétence & categorie</li>
 </ul>
 
 <!-- La fenetre modale de selection de couleur -->
@@ -121,6 +124,7 @@
         min: 0,
         max: 100,
         boostat: 5,
-        maxboostedstep: 10
+        maxboostedstep: 10,
+        buttondown_class: 'btn btn-default minus-button'
     });
 </script>

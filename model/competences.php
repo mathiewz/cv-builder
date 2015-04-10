@@ -15,4 +15,11 @@ function  getAllCategories(){
     return $ret;
 }
 
+function addCompetence($name, $idCategorie, $niveau){
+    $pdo = PdoSio::getPdoSio();
+    $request = 'INSERT into competence (name, idCateg, niveau) values ('.$pdo->quote($name).','.$idCategorie.','.$niveau.');';
+    $res = $pdo->actionRequest($request);
+    return $res;
+}
+
 ?>
