@@ -19,7 +19,6 @@
         $categoriesSelect = getAllCategoriesName();
         $categories = getAllCategories();
         $competences = getAllCompetencesWithCatName();
-        print_r($competences);
     } else {
         $views[] = 'login';
     }
