@@ -47,4 +47,19 @@ function  getAllCompetencesName(){
     return $ret;
 }
 
+function getAllCompetencesWithCatName(){
+    $array = getAllCompetences();
+    foreach($array as $key => $compFromTable){
+        $array[$key]['categName']=getCatNameFromId($compFromTable['idCateg']);
+    }
+    return $array;
+}
+
+function getCatNameFromId($id){
+    $pdo = PdoSio::getPdoSio();
+    $req = 'SELECT name FROM comp_categ WHERE id='.$id.';';
+    $ret = $pdo->selectRequest($req);
+    return $ret[0]['name'];
+}
+
 ?>

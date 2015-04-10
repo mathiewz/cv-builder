@@ -87,7 +87,7 @@
                 echo '
                 <tr>
                     <td>'.$comp['name'].'</td>
-                    <td></td>
+                    <td>'.$comp['categName'].'</td>
                     <td>'.$comp['niveau'].'%</td>
                     <td><a href="#">
                             <span class="hidden-xs hidden-sm">editer </span>
