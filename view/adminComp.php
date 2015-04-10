@@ -8,7 +8,7 @@
         <div class="panel-heading">
             <h2 class="panel-title">Catégories de compétences</h2>
         </div>
-        <table class="table table-hover">
+        <table class="table table-striped">
             <tr>
                 <th class="col-xs-3">Nom</th>
                 <th class="col-xs-6">Couleur</th>
@@ -75,7 +75,7 @@
         <div class="panel-heading">
             <h2 class="panel-title">Liste des compétences</h2>
         </div>
-        <table class="table table-hover">
+        <table class="table table-striped">
             <tr>
                 <th class="col-xs-3">Nom</th>
                 <th class="col-xs-4">Categorie</th>
