@@ -17,14 +17,14 @@
             <?php
             foreach($categories as $cat){
                 echo '
-                <tr>
+                <tr id="cat'.$cat['id'].'">
                     <td>'.$cat['name'].'</td>
                     <td><div class="progress no-margin"><div class="progress-bar progress-bar-striped active" style="width: 100%; background-color: '.$cat['color'].';"></div></div></td>
-                    <td><a href="#">
+                    <td><a href="#!" onclick="editCat('.$cat['id'].', \''.$cat['name'].'\', \''.$cat['color'].'\')">
                             <span class="hidden-xs hidden-sm">editer </span>
                             <span class="glyphicon glyphicon-pencil"/>
                         </a> 
-                        <a href="#">
+                        <a href="#!">
                             <span class="hidden-xs hidden-sm">supprimer </span>
                             <span class="glyphicon glyphicon-remove"/>
                     </a></td>
@@ -38,23 +38,24 @@
     <!-- Panel d'ajout d'une categorie -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2 class="panel-title">Ajouter une catégorie</h2>
+            <h2 id="catTitle" class="panel-title">Ajouter une catégorie</h2>
         </div>
         <div class="panel-body">
             <form action="admin-competences" method="post">
-                <input type="hidden" name="formSend" value="addCategorie"/>
+                <input type="hidden" id="catForm" name="formSend" value="addCategorie"/>
+                <input type="hidden" id="catId" name="id" value=""/>
                 <div class="form-group col-xs-12">
                     <div class="col-xs-12 col-md-6">
                         <div class="form-group input-group col-xs-12">
                             <div class="hidden-xs input-group-addon">Nom</div>
                             <label for="nom" class="visible-xs">Nom</label>
-                            <input type="text" class="form-control" name="nom" id="nom" required />
+                            <input type="text" class="form-control" name="nom" id="catNom" required />
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-6">
                         <a class="btn btn-primary col-xs-12 col-sm-4" data-toggle="modal" data-target=".color-modal-sm">Couleur</a>
                         <div class="col-xs-12 col-sm-8">
-                            <input type="hidden" class="form-control" name="color" id="color" value="#428bca" required />
+                            <input type="hidden" class="form-control" name="color" id="catColor" value="#428bca" required />
                             <div id="colorDemoProgress" class="progress">
                                 <div class="progress-bar progress-bar-striped active fb-callback" style="width: 100%">
                                     <!--La progressBar est générée ici par Bootstrap ! -->
@@ -64,7 +65,7 @@
                     </div>
                 </div>
                 <div id="addCatButton" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <input type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
+                    <input type="submit" id="catSubmit" class="btn btn-primary col-xs-12" value="Ajouter" />
                 </div>
             </form>
         </div>
@@ -89,11 +90,11 @@
                     <td>'.$comp['name'].'</td>
                     <td>'.$comp['categName'].'</td>
                     <td>'.$comp['niveau'].'%</td>
-                    <td><a href="#">
+                    <td><a href="#!" onclick="editComp('.$comp['id'].', \''.$comp['name'].'\', \''.$comp['idCateg'].'\', '.$comp['niveau'].')">
                             <span class="hidden-xs hidden-sm">editer </span>
                             <span class="glyphicon glyphicon-pencil"/>
                         </a> 
-                        <a href="#">
+                        <a href="#!">
                             <span class="hidden-xs hidden-sm">supprimer </span>
                             <span class="glyphicon glyphicon-remove"/>
                     </a></td>
@@ -107,16 +108,17 @@
     <!-- Panel d'ajout d'une competence -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2 class="panel-title">Ajouter une competence</h2>
+            <h2 class="panel-title" id="comptitle">Ajouter une competence</h2>
         </div>
         <div class="panel-body">
             <form action="admin-competences" method="post">
-                <input type="hidden" name="formSend" value="addCompetence"/>
+                <input type="hidden" id="compForm" name="formSend" value="addCompetence"/>
+                <input type="hidden" id="compId" name="id" value=""/>
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Nom</div>
                         <label for="nom" class="visible-xs">Nom</label>
-                        <input type="text" class="form-control" name="nom" id="nom" required />
+                        <input type="text" class="form-control" name="nom" id="compNom" required />
                     </div>
                 </div>
                 
@@ -125,7 +127,7 @@
                     <div class="form-group input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Catégorie</div>
                         <label for="categorie" class="visible-xs">Catégorie</label>
-                        <select name="categorie" class="form-control">
+                        <select id="compCat" name="categorie" class="form-control">
                             <?php
                             foreach($categoriesSelect as $id => $name){
                                 echo '<option value="'.$id.'">'.$name.'</option> ';
@@ -140,12 +142,12 @@
                         <div class="hidden-xs input-group-addon">Niveau (en %)</div>
                         <label for="niveau" class="visible-xs">Niveau (en %)</label>
                         <div>
-                            <input id="niveau" type="text" value="" name="niveau">
+                            <input id="compNiveau" type="text" value="" name="niveau">
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <input type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
+                    <input id="compSubmit" type="submit" class="btn btn-primary col-xs-12" value="Ajouter" />
                 </div>
             </form>
         </div>
@@ -184,13 +186,42 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#colorpicker').farbtastic('#color');
+        launchNumberEditor();
+        $('#colorpicker').farbtastic('#catColor');
+        $('.fb-callback').css('background-color', $.farbtastic('#colorpicker').color);
+        $.farbtastic('#colorpicker').linkTo('.fb-callback');
     });
 
-    $("#niveau").TouchSpin({
-        min: 0,
-        max: 100,
-        boostat: 5,
-        maxboostedstep: 10
-    });
+    function launchNumberEditor(){
+        $("#compNiveau").TouchSpin({
+            min: 0,
+            max: 100,
+            boostat: 5,
+            maxboostedstep: 10
+        });
+    }
+
+    function editCat(id, name, color){
+        $('#catForm').val('editCategorie');
+        $('#catId').val(id);
+        $('#catNom').val(name);
+        $('#catColor').val(color);
+        $('#catSubmit').val('Modifier');
+        $('#catTitle').html('Editer une catégorie');
+        $('.fb-callback').css('background-color', color);
+        $.farbtastic('#colorpicker').setColor(color);
+        $.farbtastic('#colorpicker').linkTo('.fb-callback');
+        return false;
+    }
+
+    function editComp(id, name, cat, lvl){
+        $('#compId').val(id);
+        $('#compNom').val(name);
+        $('#compCat').val(cat);        
+        $('#compNiveau').val(lvl);
+        $('#compSubmit').val('Modifier');
+        $('#comptitle').html('Modifier une compétence');
+        launchNumberEditor();
+        return false;
+    }
 </script>
