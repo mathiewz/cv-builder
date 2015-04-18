@@ -2,7 +2,6 @@
     session_start ();
     $views = array();
     $viewsContainer = array();
-    print_r($_POST);
     if (isset($_SESSION['connected']) && $_SESSION['connected']==true) {
         require_once('model/competences.php');
 
