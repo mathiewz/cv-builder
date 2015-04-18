@@ -17,14 +17,14 @@
             <?php
             foreach($categories as $cat){
                 echo '
-                <tr id="cat'.$cat['id'].'">
+                <tr>
                     <td>'.$cat['name'].'</td>
                     <td><div class="progress no-margin"><div class="progress-bar progress-bar-striped active" style="width: 100%; background-color: '.$cat['color'].';"></div></div></td>
-                    <td><a href="#!" onclick="editCat('.$cat['id'].', \''.$cat['name'].'\', \''.$cat['color'].'\')">
+                    <td><a href="#!" onclick="editCat('.$cat['id'].', \''.$cat['name'].'\', \''.$cat['color'].'\');">
                             <span class="hidden-xs hidden-sm">editer </span>
                             <span class="glyphicon glyphicon-pencil"/>
                         </a> 
-                        <a href="#!">
+                        <a data-toggle="modal" data-target=".delete-modal-sm" onclick="del('.$cat['id'].', \''.$cat['name'].'\', \'catDelete\');">
                             <span class="hidden-xs hidden-sm">supprimer </span>
                             <span class="glyphicon glyphicon-remove"/>
                     </a></td>
@@ -55,7 +55,7 @@
                     <div class="col-xs-12 col-md-6">
                         <a class="btn btn-primary col-xs-12 col-sm-4" data-toggle="modal" data-target=".color-modal-sm">Couleur</a>
                         <div class="col-xs-12 col-sm-8">
-                            <input type="hidden" class="form-control" name="color" id="catColor" value="#428bca" required />
+                            <input type="hidden" class="form-control fb-callback" name="color" id="catColor" value="#428bca" required />
                             <div id="colorDemoProgress" class="progress">
                                 <div class="progress-bar progress-bar-striped active fb-callback" style="width: 100%">
                                     <!--La progressBar est générée ici par Bootstrap ! -->
@@ -90,11 +90,11 @@
                     <td>'.$comp['name'].'</td>
                     <td>'.$comp['categName'].'</td>
                     <td>'.$comp['niveau'].'%</td>
-                    <td><a href="#!" onclick="editComp('.$comp['id'].', \''.$comp['name'].'\', \''.$comp['idCateg'].'\', '.$comp['niveau'].')">
+                    <td><a href="#!" onclick="editComp('.$comp['id'].', \''.$comp['name'].'\', \''.$comp['idCateg'].'\', '.$comp['niveau'].');">
                             <span class="hidden-xs hidden-sm">editer </span>
                             <span class="glyphicon glyphicon-pencil"/>
                         </a> 
-                        <a href="#!">
+                        <a data-toggle="modal" data-target=".delete-modal-sm" href="#!" onclick="del('.$comp['id'].', \''.$comp['name'].'\', \'compDelete\');">
                             <span class="hidden-xs hidden-sm">supprimer </span>
                             <span class="glyphicon glyphicon-remove"/>
                     </a></td>
@@ -184,12 +184,32 @@
     </div>
 </div>
 
+<!-- La fenetre modale de suppression d'un élément -->
+<div class="modal fade delete-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirmer ?</h4>
+            </div>
+            <div class="modal-body">
+                <p id="txtModal"></p>
+                <form action="admin-competences" method="post">
+                    <input type="hidden" id="idDelete" name="id" />
+                    <input type="hidden" id="formDelete" name="formSend" />
+                    <input type="submit" class="btn btn-danger" value="Confirmer" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function() {
         launchNumberEditor();
-        $('#colorpicker').farbtastic('#catColor');
-        $('.fb-callback').css('background-color', $.farbtastic('#colorpicker').color);
         $.farbtastic('#colorpicker').linkTo('.fb-callback');
+        return false;
     });
 
     function launchNumberEditor(){
@@ -199,6 +219,7 @@
             boostat: 5,
             maxboostedstep: 10
         });
+        return false;
     }
 
     function editCat(id, name, color){
@@ -215,6 +236,7 @@
     }
 
     function editComp(id, name, cat, lvl){
+        $('#compForm').val('editCompetence');
         $('#compId').val(id);
         $('#compNom').val(name);
         $('#compCat').val(cat);        
@@ -222,6 +244,16 @@
         $('#compSubmit').val('Modifier');
         $('#comptitle').html('Modifier une compétence');
         launchNumberEditor();
+        return false;
+    }
+
+    function del(id, name, type){
+        var txtModal = 'undefined';
+        if(type=='catDelete'){txtModal = 'Voulez vous vraiment supprimer la categorie ';}
+        if(type=='compDelete'){txtModal = 'Voulez vous vraiment supprimer la compétence ';}
+        $('#txtModal').html(txtModal + name);
+        $('#formDelete').val(type);
+        $('#idDelete').val(id);
         return false;
     }
 </script>

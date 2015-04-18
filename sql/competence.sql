@@ -29,5 +29,5 @@ CREATE TABLE IF NOT EXISTS `competence` (
     idCateg int NOT NULL,
     niveau int NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (idCateg) REFERENCES comp_categ(id)
+    FOREIGN KEY (idCateg) REFERENCES comp_categ(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

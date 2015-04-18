@@ -38,15 +38,6 @@ function  getAllCompetences(){
     return $ret;
 }
 
-function  getAllCompetencesName(){
-    $array = getAllCompetences();
-    $ret = array();
-    foreach($array as $compFromTable){
-        $ret[$compFromTable['id']]=$compFromTable['name'];
-    }
-    return $ret;
-}
-
 function getAllCompetencesWithCatName(){
     $array = getAllCompetences();
     foreach($array as $key => $compFromTable){
@@ -60,6 +51,28 @@ function getCatNameFromId($id){
     $req = 'SELECT name FROM comp_categ WHERE id='.$id.';';
     $ret = $pdo->selectRequest($req);
     return $ret[0]['name'];
+}
+
+function deleteComp($id){
+    $pdo = PdoSio::getPdoSio();
+    return $pdo->deleteRequest($id, "competence");
+}
+
+function deleteCat($id){
+    $pdo = PdoSio::getPdoSio();
+    return $pdo->deleteRequest($id, "comp_categ");
+}
+
+function updateCategorie($id, $name, $color){
+    $pdo = PdoSio::getPdoSio();
+    $request = 'UPDATE comp_categ set name='.$pdo->quote($name).', color='.$pdo->quote($color).' WHERE id='.$id.';';
+    return $pdo->actionRequest($request);
+}
+
+function updateCompetence($id, $name, $idCategorie, $niveau){
+    $pdo = PdoSio::getPdoSio();
+    $request = 'UPDATE competence set name='.$pdo->quote($name).', idCateg='.$idCategorie.', niveau='.$niveau.' WHERE id='.$id.';';
+    return $pdo->actionRequest($request);
 }
 
 ?>

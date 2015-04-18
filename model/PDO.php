@@ -70,7 +70,7 @@ class PdoSio{
     /* TO USE SELECTION REQUEST
     * Example:  
     * $pdo = PdoSio::getPdoSio();
-    * $resultats = $pdo->requestSelection("SELECT id_user FROM user WHERE identifiant ='toto'");
+    * $resultats = $pdo->selectRequest("SELECT id_user FROM user WHERE identifiant ='toto'");
     * if ($resultats) {
     *   $idInput = $resultats[0]['id_user'];
     *   echo "idInput";
@@ -84,5 +84,16 @@ class PdoSio{
         }else{  
             return $res->fetchall(PDO::FETCH_NAMED);
         } 
+    }
+
+    /* TO USE DELETION REQUEST
+    * Example:  
+    * $pdo = PdoSio::getPdoSio();
+    * $resultat = $pdo->deleteRequest(5, "mytable");
+    * if(resultat){echo 'entrée n°5 supprimée de la table mytable'}
+    */
+    public function deleteRequest($id, $table){
+        $request = "DELETE FROM ".$table." WHERE id=".$id.";";
+        return PdoSio::$myPdoSio->actionRequest($request);
     }
 }
