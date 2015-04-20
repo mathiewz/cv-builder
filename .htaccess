@@ -214,6 +214,7 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteRule ^administrator$ index.php?controller=admin [L]
 RewriteRule ^admin-presentation$ index.php?controller=adminprez [L]
+RewriteRule ^admin-competences$ index.php?controller=admincomp [L]
 # RewriteBase /
 
 # ------------------------------------------------------------------------------

@@ -1,9 +1,6 @@
 <?php
 class PdoSio{  
-  	private static $serveur='mysql:';
-  	private static $bdd='';   		
-  	private static $user='';    		
-  	private static $mdp='';	
+    private static $serveur='mysql:';  
     private static $myPdo=null;
     private static $myPdoSio=null;
     
@@ -16,11 +13,11 @@ class PdoSio{
         );
         try {
             PdoSio::$myPdo = new PDO('mysql:host='. $config['db']['host'] .';dbname='. $config['db']['dbname'], $config['db']['username'], $config['db']['password']);
-    		PdoSio::$myPdo->query("SET CHARACTER SET utf8");
+            PdoSio::$myPdo->query("SET CHARACTER SET utf8");
         } catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
         }
-	}
+    }
         
     public function _destruct(){
         PdoSio::$myPdo = null;
@@ -32,6 +29,14 @@ class PdoSio{
         }
         return PdoSio::$myPdoSio;
     }
+    
+    /*
+    * to use to get the instance of the object PDO
+    */
+    public function quote($value){
+        return PdoSio::$myPdo->quote($value);
+    }
+    
     /* TO USE ACTION REQUEST
     * Example:  
     * $pdo = PdoSio::getPdoSio();
@@ -65,7 +70,7 @@ class PdoSio{
     /* TO USE SELECTION REQUEST
     * Example:  
     * $pdo = PdoSio::getPdoSio();
-    * $resultats = $pdo->requestSelection("SELECT id_user FROM user WHERE identifiant ='toto'");
+    * $resultats = $pdo->selectRequest("SELECT id_user FROM user WHERE identifiant ='toto'");
     * if ($resultats) {
     *   $idInput = $resultats[0]['id_user'];
     *   echo "idInput";
@@ -75,9 +80,20 @@ class PdoSio{
         
         $res= PdoSio::$myPdo->query($request);
         if($res==null){
-         return null;   
+            return null;   
         }else{  
             return $res->fetchall(PDO::FETCH_NAMED);
         } 
+    }
+
+    /* TO USE DELETION REQUEST
+    * Example:  
+    * $pdo = PdoSio::getPdoSio();
+    * $resultat = $pdo->deleteRequest(5, "mytable");
+    * if(resultat){echo 'entrée n°5 supprimée de la table mytable'}
+    */
+    public function deleteRequest($id, $table){
+        $request = "DELETE FROM ".$table." WHERE id=".$id.";";
+        return PdoSio::$myPdoSio->actionRequest($request);
     }
 }

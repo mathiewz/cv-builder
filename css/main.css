@@ -139,6 +139,22 @@ body{
     padding: 0;
 }
 
+#colorDemoProgress{
+    margin: 7px 0;
+}
+
+#addCatButton{
+    padding: 0 30px;
+}
+
+#minus-button{
+    border-radius: 0;
+}
+
+.no-margin{
+    margin: 0;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -253,7 +269,7 @@ body{
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
+       (min-resolution: 120dppx) {
     /* Style adjustments for high resolution devices */
 }
 
