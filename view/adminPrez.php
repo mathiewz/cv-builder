@@ -72,10 +72,10 @@ if(Modernizr.touch){
     $("#birthday").prop("type", "date");
 } else {
     $('#birthday').datepicker({
-    format: 'dd/mm/yyyy',
-    viewMode: 2,
-    weekStart: 1
-});
+        format: 'dd/mm/yyyy',
+        viewMode: 2,
+        weekStart: 1
+    });
 }
 
 

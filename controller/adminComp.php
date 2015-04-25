@@ -15,7 +15,7 @@
             } else if ($_POST['formSend'] == 'compDelete') {
                 deleteComp($_POST['id']);
             } else if ($_POST['formSend'] == 'editCategorie') {
-                print_r(updateCategorie($_POST['id'], $_POST['nom'], $_POST['color']));
+                updateCategorie($_POST['id'], $_POST['nom'], $_POST['color']);
             } else if ($_POST['formSend'] == 'editCompetence') {
                 updateCompetence($_POST['id'], $_POST['nom'], $_POST['categorie'], $_POST['niveau']);
             }
@@ -23,6 +23,7 @@
 
         $views[] = 'menuAdmin';
         $viewsContainer[] = 'adminComp';
+        $viewsContainer[] = 'adminParcours';
         
         $categoriesSelect = getAllCategoriesName();
         $categories = getAllCategories();
