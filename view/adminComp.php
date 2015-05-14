@@ -153,15 +153,6 @@
     </div>
 </div>
 
-<p>
-    Formulaires des compétences et parcours<br/>
-    TODO
-</p>
-<ul>
-    <li>Parcours scolaire</li>
-    <li>parcours pro</li>
-</ul>
-
 <!-- La fenetre modale de selection de couleur -->
 <div class="modal fade color-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
