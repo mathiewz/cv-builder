@@ -30,6 +30,13 @@ function  getListParcoursScol(){
     return $ret;
 } 
 
+function getParcoursFromId($id){
+    $pdo = PdoSion::getPdoSion();
+    $req = 'SELECT * FROM parcours WHERE id = '.$id.';';
+    $ret = $pdo->selectRequest($req);
+    return $ret;
+}
+
 function deleteParcours($id){
     $pdo = PdoSio::getPdoSio();
     return $pdo->deleteRequest($id, "parcours");

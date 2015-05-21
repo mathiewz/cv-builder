@@ -20,7 +20,7 @@
                 <tr>
                     <td>'.$exp['nom'].'</td>
                     <td>'.$exp['etablissement'].'</td>
-                    <td><a href="#!" onclick="editExp('.$exp['id'].', 0, \''.$exp['nom'].'\', \''.$exp['etablissement'].'\', \''.$exp['description'].'\', \''.$exp['ville'].'\', \''.$exp['debut'].'\', \''.$exp['fin'].'\');">
+                    <td><a href="#!" onclick="editExp('.$exp['id'].');">
                             <span class="hidden-xs hidden-sm">editer </span>
                             <span class="glyphicon glyphicon-pencil"/>
                         </a> 
@@ -52,7 +52,7 @@
                 <tr>
                     <td>'.$exp['nom'].'</td>
                     <td>'.$exp['etablissement'].'</td>
-                    <td><a href="#!" onclick="editExp('.$exp['id'].', 1, \''.$exp['nom'].'\', \''.$exp['etablissement'].'\', \''.$exp['description'].'\', \''.$exp['ville'].'\', \''.$exp['debut'].'\', \''.$exp['fin'].'\');">
+                    <td><a href="#!" onclick="editExp('.$exp['id'].');">
                             <span class="hidden-xs hidden-sm">editer </span>
                             <span class="glyphicon glyphicon-pencil"/>
                         </a> 
@@ -186,25 +186,35 @@ function delParcours(id, name, type){
     return false;
 }
 
-function editExp(id, scolaire, nom, etablissement, description, ville, debut, fin){
-    var toCheck = (scolaire == 1);
-    $('#idParcours').val(id);
-    $('#scolaire').prop('checked', scolaire);
-    $('#parcoursNom').val(nom);
-    $('#parcoursBoite').val(etablissement);
-    $('#parcoursDesc').html(description);
-    $('#parcoursVille').val(ville);
-    $('#ParcoursSubmit').val('Modifier');        
-    $('#parcoursFormTitle').html('Editer une experience');
-    $('#parcoursForm').val('editParcours');
+function editExp(idParcours){
+    var params = {id:idParcours};
+    $.ajax({
+      url: "script/getParcoursFromID.php",
+      context: document.body,
+      method: "POST",
+      data: params
+    }).done(function( data ) {
+        var obj = $.parseJSON(data);
+        var toCheck = (scolaire == 1);
+        $('#idParcours').val(obj.id);
+        $('#scolaire').prop('checked', obj.scolaire);
+        $('#parcoursNom').val(obj.nom);
+        $('#parcoursBoite').val(obj.etablissement);
+        $('#parcoursDesc').html(obj.description);
+        $('#parcoursVille').val(obj.ville);
+        $('#ParcoursSubmit').val('Modifier');        
+        $('#parcoursFormTitle').html('Editer une experience');
+        $('#parcoursForm').val('editParcours');
 
-    $('#parcoursDebut').val(debut);
-    var initalValue = $('#parcoursDebut').val();
-    $('#parcoursDebut').val(initalValue.substring(8,10)+'/'+initalValue.substring(5,7)+'/'+initalValue.substring(0,4));
-    
-    $('#parcoursFin').val(fin);
-    initalValue = $('#parcoursFin').val();
-    $('#parcoursFin').val(initalValue.substring(8,10)+'/'+initalValue.substring(5,7)+'/'+initalValue.substring(0,4));
+        $('#parcoursDebut').val(obj.debut);
+        var initalValue = $('#parcoursDebut').val();
+        $('#parcoursDebut').val(initalValue.substring(8,10)+'/'+initalValue.substring(5,7)+'/'+initalValue.substring(0,4));
+
+        $('#parcoursFin').val(obj.fin);
+        initalValue = $('#parcoursFin').val();
+        $('#parcoursFin').val(initalValue.substring(8,10)+'/'+initalValue.substring(5,7)+'/'+initalValue.substring(0,4));    
+      });
+   
 
     return false;
 }
