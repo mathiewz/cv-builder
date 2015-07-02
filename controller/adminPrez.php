@@ -19,7 +19,7 @@
         }
         $viewsContainer[] = 'adminPrez';
 
-        //On définitx les différents champs du formulaire de description
+        //On définit les différents champs du formulaire de description
         $formNames = array();
         $forms['nom'] = 'Votre nom';
         $forms['prenom'] = 'Votre prenom';

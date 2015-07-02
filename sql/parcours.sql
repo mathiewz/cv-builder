@@ -9,24 +9,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `description`
+-- Structure de la table `parcours`
 --
 
-CREATE TABLE IF NOT EXISTS `description` (
-  `id` int(11) NOT NULL,
-  `nom` text NOT NULL,
-  `prenom` text NOT NULL,
-  `birthday` date NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `description`
---
-
-INSERT INTO `description` (`id`, `nom`, `prenom`, `birthday`, `description`) VALUES
-(1, 'Lucas', 'Mathieu', '1995-03-16', 'Etudiant ACPI\r\nAlternant CGI');
+CREATE TABLE IF NOT EXISTS `parcours` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `scolaire` tinyint(1) DEFAULT NULL,
+  `nom` varchar(100) NOT NULL,
+  `etablissement` varchar(100) NOT NULL,
+  `description` varchar(1500) NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `debut` date NOT NULL,
+  `fin` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `scolaire` (`scolaire`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

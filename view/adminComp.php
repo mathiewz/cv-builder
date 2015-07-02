@@ -136,7 +136,6 @@
                         </select>
                     </div>
                 </div>
-                
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group input-group col-xs-12">
                         <div class="hidden-xs input-group-addon">Niveau (en %)</div>
@@ -153,21 +152,6 @@
         </div>
     </div>
 </div>
-
-<p>
-    Formulaires des compétences et parcours<br/>
-    TODO
-</p>
-<ul>
-    <li>Parcours scolaire</li>
-    <li>parcours pro</li>
-    <li>Compétences
-        <ul>
-            <li>Compétences</li>
-        </ul>
-    </li>
-    <li>Afficher, modifier et supprimer une compétence & categorie</li>
-</ul>
 
 <!-- La fenetre modale de selection de couleur -->
 <div class="modal fade color-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
