@@ -33,7 +33,7 @@ function addCompetence($name, $idCategorie, $niveau){
 
 function  getAllCompetences(){
     $pdo = PdoSio::getPdoSio();
-    $req = 'SELECT * FROM competence;';
+    $req = 'SELECT * FROM competence ORDER BY niveau DESC;';
     $ret = $pdo->selectRequest($req);
     return $ret;
 }
